@@ -13,17 +13,26 @@ app.use(morgan('dev'));
 
 // DATA
 const users = [
-  { id: 1, name: 'James' },
-  { id: 2, name: 'Serbentautas' },
-  { id: 3, name: 'Lenteja' },
+  { id: 3, name: 'James' },
+  { id: 1, name: 'Serbentautas' },
+  { id: 2, name: 'Lenteja' },
 ];
 
 // Routes
 app.get('/', (request, response) => {
-  response.send('<h1>Welcome to users API</h1>');
+  response.send(
+    '<h1>Welcome to users API</h1><a href="/api/users">Our users list</a><br/><a href="/api/users/3">User with id 3</a>'
+  );
 });
 
 // GET /api/users -> grazinti visu useriu masyva json
+app.get('/api/users', (request, response) => {
+  response.json(users);
+});
+
+// GET /api/users/3 -> grazinti useri kurio id yra 3 (ne pagal indexa)
+
+// POST /api/users -> sukurti nauja useri su gautu name ir prideti prie esamu, grazinti 201 statusa su zinute
 
 // 404
 app.use((req, res) => {
