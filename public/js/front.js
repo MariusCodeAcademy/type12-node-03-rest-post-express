@@ -34,8 +34,8 @@ async function createUserFetch(username) {
   if (resp.status === 201) {
     return true;
   }
-  const dataFromResp = await resp.json();
-  console.log('dataFromResp ===', dataFromResp);
+  // const dataFromResp = await resp.json();
+  // console.log('dataFromResp ===', dataFromResp);
 }
 
 // parsisiusti vartotojus is back end, (fetch)

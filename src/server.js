@@ -50,6 +50,8 @@ app.get('/api/users/3', (request, response) => {
 app.post('/api/users', (request, response) => {
   // add new user
   // console.log('request.body ===', request.body);
+  // response.sendStatus(400);
+  // return;
   const newUserName = request.body.name;
   console.log('newUserName ===', newUserName);
   const newUserId = users.length + 1;
