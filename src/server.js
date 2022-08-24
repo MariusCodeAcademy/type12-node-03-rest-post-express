@@ -10,6 +10,10 @@ const PORT = 3000;
 // MiddleWare
 app.use(cors());
 app.use(morgan('dev'));
+// kad gautame requsest body galetume matyti json atsiustus duomenis turim ijungi json atkodavima
+app.use(express.json());
+// atkoduoti requsest body form data
+app.use(express.urlencoded({ extended: false }));
 
 // DATA
 const users = [
@@ -43,6 +47,19 @@ app.get('/api/users/3', (request, response) => {
 });
 
 // POST /api/users -> sukurti nauja useri su gautu name ir prideti prie esamu, grazinti 201 statusa su zinute
+app.post('/api/users', (request, response) => {
+  // add new user
+  // console.log('request.body ===', request.body);
+  const newUserName = request.body.name;
+  console.log('newUserName ===', newUserName);
+  const newUserId = users.length + 1;
+  const newUserObj = {
+    id: newUserId,
+    name: newUserName,
+  };
+  users.push(newUserObj);
+  response.json({ msg: `${newUserName} has been added` });
+});
 
 // 404
 app.use((req, res) => {
