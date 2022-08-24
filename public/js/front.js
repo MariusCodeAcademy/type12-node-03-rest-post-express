@@ -6,3 +6,6 @@ const baseUrl = '';
 
 // su js kai siunciama forma paimti input reiksme ir nusiusti i musu sukurta back enda kad
 // sukurti nauja useri
+
+// parsisiusti vartotojus is back end, (fetch)
+// sugeneruoti sarasa <li>James</li> su vardais ul elemente htmle
