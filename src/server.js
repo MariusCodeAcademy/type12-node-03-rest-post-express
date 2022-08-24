@@ -58,7 +58,10 @@ app.post('/api/users', (request, response) => {
     name: newUserName,
   };
   users.push(newUserObj);
-  response.json({ msg: `${newUserName} has been added` });
+  response.status(201).json({
+    msg: `${newUserName} has been added`,
+    success: true,
+  });
 });
 
 // 404
